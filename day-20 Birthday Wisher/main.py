@@ -18,7 +18,7 @@ for person in data:
         file.close()
 
         my_email = "admin@pixelpaste.net"
-        password = "Krevory123@"
+        password = ""
         connection = smtplib.SMTP("smtp.hostinger.com", 587)
         connection.starttls()
         connection.login(user=my_email, password=password)
