@@ -11,7 +11,7 @@ if now_day == "Friday":
     data = pandas.read_csv("quotes.txt",header=None).to_dict(orient="records")
     quote = random.choice(data)
     my_email = "admin@pixelpaste.net"
-    password = "Krevory123@"
+    password = ""
     connection = smtplib.SMTP("smtp.hostinger.com",587)
     connection.starttls()
     connection.login(user=my_email,password=password)
