@@ -31,7 +31,7 @@ while True:
     if price_on_website <= buying_price:
         my_email = "admin@pixelpaste.net"
         msg = f"price of your wished product is:{price_on_website}\n go buy it how at {item_url}"
-        password = "Krevory123@"
+        password = ""
         connection = smtplib.SMTP("smtp.hostinger.com", 587)
         connection.starttls()
         connection.login(user=my_email, password=password)
