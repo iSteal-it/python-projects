@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 
 to_check = [
-    
+
 ]
 
 for check in to_check:
@@ -35,6 +35,8 @@ for check in to_check:
             print(f"{mail} ID not lock")
     except:
         print(f"{mail} apple id error check apple id")
+
+    driver.close()
 
     if unlock_seq:
         try:
@@ -72,6 +74,7 @@ for check in to_check:
             iforgot_url = driver2.find_element_by_css_selector("p a")
             unlock_url = iforgot_url.get_attribute("href")
 
+            driver2.close()
 
             driver3 = webdriver.Chrome(executable_path=chromedriver)
             driver3.get(unlock_url)
@@ -87,5 +90,8 @@ for check in to_check:
             unlck = driver3.find_element_by_class_name("right-nav")
             unlck.click()
             print(f"{mail} apple id unlocked")
+            driver3.close()
         except:
             print(f"{mail} apple id unable to unlock")
+            driver3.close()
+            driver2.close()
