@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 
 to_check = [
-
+    
 ]
 
 for check in to_check:
@@ -37,52 +37,55 @@ for check in to_check:
         print(f"{mail} apple id error check apple id")
 
     if unlock_seq:
-        driver2 = webdriver.Chrome(executable_path=chromedriver)
-        driver2.get("https://mail.hostinger.com/")
+        try:
+            driver2 = webdriver.Chrome(executable_path=chromedriver)
+            driver2.get("https://mail.hostinger.com/")
 
-        time.sleep(5)
-        user_name = driver2.find_element_by_name("_user")
-        user_name.send_keys(mail)
+            time.sleep(5)
+            user_name = driver2.find_element_by_name("_user")
+            user_name.send_keys(mail)
 
-        pass_word = driver2.find_element_by_name("_pass")
-        pass_word.send_keys("")
+            pass_word = driver2.find_element_by_name("_pass")
+            pass_word.send_keys("")
 
-        login_button = driver2.find_element_by_id("rcmloginsubmit")
-        login_button.click()
+            login_button = driver2.find_element_by_id("rcmloginsubmit")
+            login_button.click()
 
-        mail_search = driver2.find_element_by_name("_q")
-        mail_search.send_keys("apple")
+            mail_search = driver2.find_element_by_name("_q")
+            mail_search.send_keys("apple")
 
-        time.sleep(5)
+            time.sleep(5)
 
-        show_unread_message = driver2.find_element_by_xpath("//a[@title='Show unread messages']")
-        show_unread_message.click()
-        show_unread_message.click()
-
-
-        time.sleep(3)
-
-        select_message = driver2.find_element_by_class_name("message")
-        select_message.click()
-        select_message.click()
-
-        time.sleep(3)
-
-        iforgot_url = driver2.find_element_by_css_selector("p a")
-        unlock_url = iforgot_url.get_attribute("href")
+            show_unread_message = driver2.find_element_by_xpath("//a[@title='Show unread messages']")
+            show_unread_message.click()
+            show_unread_message.click()
 
 
-        driver3 = webdriver.Chrome(executable_path=chromedriver)
-        driver3.get(unlock_url)
+            time.sleep(3)
 
-        unlock_button = driver3.find_element_by_class_name("unlock")
-        unlock_button.click()
+            select_message = driver2.find_element_by_class_name("message")
+            select_message.click()
+            select_message.click()
 
-        time.sleep(3)
+            time.sleep(3)
 
-        enter_password = driver3.find_element_by_class_name("generic-input-field")
-        enter_password.send_keys(apple_pass)
+            iforgot_url = driver2.find_element_by_css_selector("p a")
+            unlock_url = iforgot_url.get_attribute("href")
 
-        unlck = driver3.find_element_by_class_name("right-nav")
-        unlck.click()
-        print(f"{mail} apple id unlocked")
+
+            driver3 = webdriver.Chrome(executable_path=chromedriver)
+            driver3.get(unlock_url)
+
+            unlock_button = driver3.find_element_by_class_name("unlock")
+            unlock_button.click()
+
+            time.sleep(3)
+
+            enter_password = driver3.find_element_by_class_name("generic-input-field")
+            enter_password.send_keys(apple_pass)
+
+            unlck = driver3.find_element_by_class_name("right-nav")
+            unlck.click()
+            print(f"{mail} apple id unlocked")
+        except:
+            print(f"{mail} apple id unable to unlock")
