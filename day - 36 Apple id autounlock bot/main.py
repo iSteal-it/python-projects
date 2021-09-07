@@ -9,7 +9,7 @@ for check in to_check:
     mail = check["apple_id"]
     apple_pass = check["password"]
 
-    chromedriver: str = "/Users/alyadav/Desktop/chromedriver"
+    chromedriver: str = ""
     driver = webdriver.Chrome(executable_path=chromedriver)
 
     driver.get("https://iforgot.apple.com/password/verify/appleid")
