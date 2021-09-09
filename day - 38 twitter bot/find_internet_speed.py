@@ -3,7 +3,7 @@ import time
 
 class Speed:
     def __init__(self):
-        self.chromedriver: str = "/Users/alyadav/Desktop/chromedriver"
+        self.chromedriver: str = ""
         self.driver = webdriver.Chrome(executable_path=self.chromedriver)
     def get_speed(self):
         self.driver.get("https://www.speedtest.net/")
