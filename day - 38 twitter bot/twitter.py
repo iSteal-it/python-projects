@@ -5,16 +5,16 @@ import time
 
 class Twitter:
     def __init__(self):
-        self.chromedriver: str = "/Users/alyadav/Desktop/chromedriver"
+        self.chromedriver: str = ""
         self.driver = webdriver.Chrome(executable_path=self.chromedriver)
     def login_(self):
         self.driver.get("https://twitter.com/login")
         time.sleep(5)
         user_ = self.driver.find_element_by_name("session[username_or_email]")
-        user_.send_keys("istealv6@gmail.com")
+        user_.send_keys("")
 
         pass_ = self.driver.find_element_by_name("session[password]")
-        pass_.send_keys("Alyadav1@")
+        pass_.send_keys("")
 
         login = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div/div')
         login.click()
