@@ -1,0 +1,41 @@
+html {
+  height: 100%;
+}
+
+body {
+background: #bbd2c5; /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #bbd2c5, #536976, #292e49); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #bbd2c5, #536976, #292e49); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+img {
+width:100%;
+border-radius:25px;
+z-index:99;
+}
+hr {
+border-top: 1px solid #5b6e9e;
+border-radius: 25px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  margin-top:10%;
+  border-radius: 25px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
