@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <form action="/add" method="POST">
+        {{form.csrf_token}}
+        {{form.book.label}}
+        {{form.book}}
+        {{form.author.label}}
+        {{form.author}}
+        {{form.rating.label}}
+        {{form.rating}}
+        <button type="submit">Add Book</button>
+    </form>
+</body>
+</html>
