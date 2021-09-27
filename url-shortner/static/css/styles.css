@@ -1,0 +1,14 @@
+body {
+background-color: #F8F0DF;
+}
+
+.card-wrapper {
+width: 400px;
+margin: auto;
+padding: 5%;
+}
+
+.card {
+padding:3%;
+background-color: #FEFBF3;
+}
