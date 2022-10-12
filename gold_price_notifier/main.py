@@ -9,7 +9,7 @@ Upper_level = 1681
 Lower_Level = 1670
 Previous_Price = 0
 
-if not mt5.initialize(path="C:\\Program Files\\MetaTrader 5 IC Markets (SC)\\terminal64.exe", login=,
+if not mt5.initialize(path="C:\\Program Files\\MetaTrader 5 IC Markets (SC)\\terminal64.exe", login=50994288,
                       server="ICMarketsSC-Demo", password="2MvVLnHL"):
     print("Failed to connect error code = ", mt5.last_error())
 
@@ -17,7 +17,7 @@ if not mt5.initialize(path="C:\\Program Files\\MetaTrader 5 IC Markets (SC)\\ter
 def mail(alert):
     my_email = "admin@pixelpaste.net"
     msg = alert
-    password = ""
+    password = "Krevory123@"
     connection = smtplib.SMTP("smtp.hostinger.com", 587)
     connection.starttls()
     connection.login(user=my_email, password=password)
@@ -31,8 +31,6 @@ def mail(alert):
 
 while Trade_Active:
     gold_info = mt5.symbol_info_tick("XAUUSD")
-    if Previous_Price == 0:
-        Previous_Price = gold_info.ask
     if Previous_Price - gold_info.ask >= 2:
         Previous_Price = gold_info.ask
         alert = f"\nGold Price is down 200 Points.\n"f"Current Price {gold_info.ask}\n"f"Trade Price {Trade_Price} {Trade_Direction}"
@@ -45,13 +43,11 @@ while Trade_Active:
 
 while not Trade_Active:
     gold_info = mt5.symbol_info_tick("XAUUSD")
-    if Previous_Price == 0:
-        Previous_Price = gold_info.ask
-    if Upper_level - Previous_Price <= 2:
+    if Upper_level - gold_info.ask <= 2:
         alert = f"\nPrice reaching your upper level {Upper_level}\n"f"Current Price {gold_info.ask}"
         mail(alert)
         quit()
-    if Lower_Level - Previous_Price >= 2:
+    if Lower_Level - gold_info.ask  >= 2:
         alert = f"\nPrice reaching your lower level {Lower_Level}\n"f"Current Price {gold_info.ask}"
         mail(alert)
         quit()
