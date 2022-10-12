@@ -31,6 +31,8 @@ def mail(alert):
 
 while Trade_Active:
     gold_info = mt5.symbol_info_tick("XAUUSD")
+    if Previous_Price == 0:
+        Previous_Price = gold_info.ask
     if Previous_Price - gold_info.ask >= 2:
         Previous_Price = gold_info.ask
         alert = f"\nGold Price is down 200 Points.\n"f"Current Price {gold_info.ask}\n"f"Trade Price {Trade_Price} {Trade_Direction}"
