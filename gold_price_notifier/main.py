@@ -49,7 +49,7 @@ while not Trade_Active:
         alert = f"\nPrice reaching your upper level {Upper_level}\n"f"Current Price {gold_info.ask}"
         mail(alert)
         quit()
-    if Lower_Level - gold_info.ask  >= 2:
+    if Lower_Level - gold_info.ask  >= -2:
         alert = f"\nPrice reaching your lower level {Lower_Level}\n"f"Current Price {gold_info.ask}"
         mail(alert)
         quit()
